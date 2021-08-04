@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "id": "app.vemto.simple-multi-tenancy",
+    "name": "simple-multi-tenancy",
+    "title": "simple Multi Tenancy",
+    "description": "Simple logged user based multi-tenancy",
+    "image": "",
+    "main": "dist/main.js",
+    "vueComponent": "dist/my-plugin.umd.min.js"
+}
