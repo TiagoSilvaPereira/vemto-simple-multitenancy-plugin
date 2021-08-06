@@ -20,13 +20,35 @@ module.exports = (vemto) => {
                 models = vemto.getProjectModels()
 
             models.forEach(model => {
-                let isOwnedByTenant = !! data.tenancyModels[model.id]
-                
-                if(isOwnedByTenant && !model.hasFieldByName(data.tenantFieldName)) {
+                if(this.isModelOwnedByTenant(model) && !model.hasFieldByName(data.tenantFieldName)) {
                     vemto.log.error(`[TENANCY ERROR] Model ${model.name} does not have a field ${data.tenantFieldName}`)
                     vemto.generator.abort()
                 }
             })
+        },
+
+        beforeRenderModel(template, content) {
+            let data = template.getData(),
+                model = data.model
+
+            if(!this.isModelOwnedByTenant(model)) return content
+
+            return this.addTenancyTraitToModel(content, model)
+        },
+
+        addTenancyTraitToModel(content, model) {
+            let phpFile = vemto.parsePhp(content)
+
+            phpFile.addUseStatement('App\\Tenancy\\OwnedByTenant')
+            phpFile.onClass(model.name).addTrait('OwnedByTenant')
+
+            return phpFile.getCode()
+        },
+
+        isModelOwnedByTenant(model) {
+            let data = vemto.getPluginData()
+
+            return !! data.tenancyModels[model.id]
         }
 
     }
