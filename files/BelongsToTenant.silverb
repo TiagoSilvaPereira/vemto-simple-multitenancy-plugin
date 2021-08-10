@@ -1,0 +1,29 @@
+<?php
+<# TEMPLATE VARIABLES #>
+<% let authModel = this.project.authModel %>
+<####>
+<####>
+namespace App\Tenancy;
+
+use App\Tenancy\TenantScope;
+use <$ this.projectHelper.getModelsNamespace() $>\<$ authModel.name $>;
+
+trait BelongsToTenant {
+
+    public static function bootBelongsToTenant() 
+    {
+        static::addGlobalScope(new TenantScope);
+
+        if(auth()->check()) {
+            static::creating(function ($model) {
+                $model-><$ this.pluginData.tenantFieldName $> = auth()->id();
+            });
+        }
+    }
+
+    public function tenant()
+    {
+        $this->belongsTo(<$ authModel.name $>::class, '<$ this.pluginData.tenantFieldName $>');
+    }
+
+}

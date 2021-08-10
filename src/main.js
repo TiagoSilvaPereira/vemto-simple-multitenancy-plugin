@@ -8,14 +8,7 @@ module.exports = (vemto) => {
             })
         },
 
-        copyableFiles() {
-            return [{
-                from: 'files/BelongsToTenant.php',
-                to: 'app/Tenancy/BelongsToTenant.php',
-            }]
-        },
-
-        beforeCodeGeneration() {
+        beforeCodeGenerationStart() {
             let data = vemto.getPluginData(),
                 models = vemto.getProjectModels()
 
@@ -39,8 +32,8 @@ module.exports = (vemto) => {
         addTenancyTraitToModel(content, model) {
             let phpFile = vemto.parsePhp(content)
 
-            phpFile.addUseStatement('App\\Tenancy\\OwnedByTenant')
-            phpFile.onClass(model.name).addTrait('OwnedByTenant')
+            phpFile.addUseStatement('App\\Tenancy\\BelongsToTenant')
+            phpFile.onClass(model.name).addTrait('BelongsToTenant')
 
             return phpFile.getCode()
         },
@@ -49,6 +42,17 @@ module.exports = (vemto) => {
             let data = vemto.getPluginData()
 
             return !! data.tenancyModels[model.id]
+        },
+
+        beforeCodeGenerationEnd() {
+            let options = {
+                formatAs: 'php'
+            }
+
+            vemto.log.message('[PLUGIN] Generating tenancy files...')
+            
+            vemto.renderTemplate('files/TenantScope.silverb', 'app/Tenancy/TenantScope.php', options)
+            vemto.renderTemplate('files/BelongsToTenant.silverb', 'app/Tenancy/BelongsToTenant.php', options)
         }
 
     }
