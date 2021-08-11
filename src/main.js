@@ -1,11 +1,23 @@
 module.exports = (vemto) => {
 
     return {
+
+        canInstall() {
+            if(vemto.projectHasMultiTenancy()) {
+                vemto.addBlockReason('You already have a multitenancy plugin installed')
+                return false
+            }
+            
+            return true
+        },
+
         onInstall() {
             vemto.savePluginData({
                 tenancyModels: {},
                 tenantFieldName: 'user_id',
             })
+
+            vemto.setMultiTenancyStrategy('login')
         },
 
         beforeCodeGenerationStart() {
