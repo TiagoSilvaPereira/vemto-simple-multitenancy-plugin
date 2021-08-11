@@ -203,14 +203,20 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: /usr/local/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"349d58aa-vue-loader-template"}!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib??vue-loader-options!./src/Component.vue?vue&type=template&id=52252e51&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"w-full"},[_c('label',{staticClass:"block text-sm font-bold"},[_vm._v("Tenant Field Name")]),_c('small',{staticClass:"mb-2"},[_vm._v("The field that identifies the relationship of a Model with the Tenant (authenticated user)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.tenantFieldName),expression:"tenantFieldName"}],staticClass:"input",attrs:{"type":"text"},domProps:{"value":(_vm.tenantFieldName)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.tenantFieldName=$event.target.value},_vm.save]}}),_c('div',{staticClass:"mt-5"},[_c('label',{staticClass:"block text-sm font-bold mb-2"},[_vm._v("Models owned by Tenant")]),_vm._l((_vm.models),function(model){return _c('div',{key:model.id,staticClass:"mb-2"},[_c('label',{staticClass:"inline-flex items-center"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.tenancyModels[model.id]),expression:"tenancyModels[model.id]"}],staticClass:"form-checkbox",attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.tenancyModels[model.id])?_vm._i(_vm.tenancyModels[model.id],null)>-1:(_vm.tenancyModels[model.id])},on:{"change":[function($event){var $$a=_vm.tenancyModels[model.id],$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.tenancyModels, model.id, $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.tenancyModels, model.id, $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.tenancyModels, model.id, $$c)}},_vm.save]}}),_c('span',{staticClass:"ml-2"},[_vm._v(_vm._s(model.name))])])])})],2)])}
+// CONCATENATED MODULE: /usr/local/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"349d58aa-vue-loader-template"}!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib??vue-loader-options!./src/Component.vue?vue&type=template&id=84994340&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"w-full"},[_c('label',{staticClass:"block text-sm font-bold"},[_vm._v("Tenant Field Name")]),_c('small',{staticClass:"mb-2"},[_vm._v("The field that identifies the relationship of a Model with the Tenant (authenticated user)")]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.tenantFieldName),expression:"tenantFieldName"}],staticClass:"input",attrs:{"type":"text"},domProps:{"value":(_vm.tenantFieldName)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.tenantFieldName=$event.target.value},_vm.save]}}),_c('div',{staticClass:"mt-5"},[_c('label',{staticClass:"block text-sm font-bold mb-2"},[_vm._v("Models owned by Tenant")]),_vm._l((_vm.models),function(model){return _c('div',{key:model.id,staticClass:"mb-2"},[_c('div',[_c('label',{staticClass:"inline-flex items-center"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.tenancyModels[model.id]),expression:"tenancyModels[model.id]"}],staticClass:"form-checkbox",attrs:{"type":"checkbox"},domProps:{"checked":Array.isArray(_vm.tenancyModels[model.id])?_vm._i(_vm.tenancyModels[model.id],null)>-1:(_vm.tenancyModels[model.id])},on:{"change":[function($event){var $$a=_vm.tenancyModels[model.id],$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.tenancyModels, model.id, $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.tenancyModels, model.id, $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.tenancyModels, model.id, $$c)}},_vm.save]}}),_c('span',{staticClass:"ml-2"},[_vm._v(_vm._s(model.name))])])]),(_vm.isModelOwnedByTenant(model) && !model.hasFieldByName(_vm.tenantFieldName))?_c('small',{staticClass:"text-red-500"},[_vm._v("The model "+_vm._s(model.name)+" does not have a field "),_c('b',[_vm._v(_vm._s(_vm.tenantFieldName))])]):_vm._e()])})],2)])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/Component.vue?vue&type=template&id=52252e51&
+// CONCATENATED MODULE: ./src/Component.vue?vue&type=template&id=84994340&
 
 // CONCATENATED MODULE: /usr/local/lib/node_modules/@vue/cli-service-global/node_modules/thread-loader/dist/cjs.js!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/babel-loader/lib??ref--12-1!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/usr/local/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib??vue-loader-options!./src/Component.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -234,17 +240,21 @@ var staticRenderFns = []
   data: function data() {
     return {
       models: [],
-      tenantFieldName: '',
-      tenancyModels: {}
+      pluginData: {},
+      tenancyModels: {},
+      tenantFieldName: ''
     };
   },
   created: function created() {
-    var data = window.vemtoApi.getPluginData();
-    this.tenantFieldName = data.tenantFieldName;
-    this.tenancyModels = data.tenancyModels || {};
+    this.pluginData = window.vemtoApi.getPluginData();
+    this.tenantFieldName = this.pluginData.tenantFieldName;
+    this.tenancyModels = this.pluginData.tenancyModels || {};
     this.models = window.vemtoApi.getProjectModels();
   },
   methods: {
+    isModelOwnedByTenant: function isModelOwnedByTenant(model) {
+      return !!this.tenancyModels[model.id];
+    },
     save: window.vemtoApi.debounce(function () {
       window.vemtoApi.savePluginData({
         tenantFieldName: this.tenantFieldName,

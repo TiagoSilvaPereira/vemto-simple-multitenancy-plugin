@@ -8,10 +8,16 @@
             <label class="block text-sm font-bold mb-2">Models owned by Tenant</label>
             
             <div class="mb-2" v-for="model in models" :key="model.id">
-                <label class="inline-flex items-center">
-                    <input type="checkbox" class="form-checkbox" v-model="tenancyModels[model.id]" @change="save">
-                    <span class="ml-2">{{ model.name }}</span>
-                </label>
+                <div>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="form-checkbox" v-model="tenancyModels[model.id]" @change="save">
+                        <span class="ml-2">{{ model.name }}</span>
+                    </label>
+                </div>
+                <small 
+                    v-if="isModelOwnedByTenant(model) && !model.hasFieldByName(tenantFieldName)" 
+                    class="text-red-500"
+                >The model {{ model.name }} does not have a field <b>{{ tenantFieldName }}</b></small>
             </div>
         </div>
     </div>
@@ -22,26 +28,31 @@ export default {
     data() {
         return {
             models: [],
-            tenantFieldName: '',
+            pluginData: {},
             tenancyModels: {},
+            tenantFieldName: '',
         }
     },
 
     created() {
-        let data = window.vemtoApi.getPluginData()
+        this.pluginData = window.vemtoApi.getPluginData()
 
-        this.tenantFieldName = data.tenantFieldName
-        this.tenancyModels = data.tenancyModels || {}
+        this.tenantFieldName = this.pluginData.tenantFieldName
+        this.tenancyModels = this.pluginData.tenancyModels || {}
         this.models = window.vemtoApi.getProjectModels()
     },
 
     methods: {
+        isModelOwnedByTenant(model) {
+            return !! this.tenancyModels[model.id]
+        },
+
         save: window.vemtoApi.debounce(function() {
             window.vemtoApi.savePluginData({
                 tenantFieldName: this.tenantFieldName,
                 tenancyModels: this.tenancyModels
             })
-        }, 300) 
+        }, 300)
     }
 }
 </script>
