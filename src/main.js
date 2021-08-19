@@ -20,6 +20,16 @@ module.exports = (vemto) => {
             vemto.setMultiTenancyStrategy('login')
         },
 
+        addEntityMarkers() {
+            let models = vemto.getProjectModels()
+
+            models.forEach(model => {
+                if(!this.isModelOwnedByTenant(model)) return
+
+                vemto.addEntityMarker(model, 'Belongs to Tenant', '#ECC94B')
+            })
+        },
+
         beforeCodeGenerationStart() {
             let data = vemto.getPluginData(),
                 models = vemto.getProjectModels()
