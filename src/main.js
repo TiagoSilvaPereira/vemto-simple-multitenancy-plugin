@@ -73,8 +73,8 @@ module.exports = (vemto) => {
 
             vemto.log.message('[PLUGIN] Generating tenancy files...')
             
-            vemto.renderTemplate('files/TenantScope.silverb', 'app/Tenancy/TenantScope.php', options)
-            vemto.renderTemplate('files/BelongsToTenant.silverb', 'app/Tenancy/BelongsToTenant.php', options)
+            vemto.renderTemplate('files/TenantScope.vemtl', 'app/Tenancy/TenantScope.php', options)
+            vemto.renderTemplate('files/BelongsToTenant.vemtl', 'app/Tenancy/BelongsToTenant.php', options)
         }
 
     }
