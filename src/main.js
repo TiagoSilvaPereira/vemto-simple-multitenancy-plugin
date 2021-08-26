@@ -57,6 +57,8 @@ module.exports = (vemto) => {
             phpFile.addUseStatement('App\\Tenancy\\BelongsToTenant')
             phpFile.onClass(model.name).addTrait('BelongsToTenant')
 
+            vemto.log.message(`Adding BelongsToTenant trait to ${model.name} model...`)
+
             return phpFile.getCode()
         },
 
@@ -71,7 +73,7 @@ module.exports = (vemto) => {
                 formatAs: 'php'
             }
 
-            vemto.log.message('[PLUGIN] Generating tenancy files...')
+            vemto.log.message('Generating tenancy files...')
             
             vemto.renderTemplate('files/TenantScope.vemtl', 'app/Tenancy/TenantScope.php', options)
             vemto.renderTemplate('files/BelongsToTenant.vemtl', 'app/Tenancy/BelongsToTenant.php', options)
