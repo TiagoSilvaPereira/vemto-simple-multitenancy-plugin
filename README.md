@@ -19,7 +19,7 @@ After marking a model as "owned by tenant", it will show a small yellow marker o
 
 ![image](https://user-images.githubusercontent.com/11933789/131032362-21d67974-f78a-49b6-94a8-4c5941605645.png)
 
-> **IMPORTANT:** - all fields marked as "owned by tenant" need to have a **belongsTo:user** (or whatever authentication model you are using) and the relationship FK field needs to have the same name you configured on the *Plugin Settings*.
+> **IMPORTANT:** - all models marked as "owned by tenant" need to have a **belongsTo:user** (or whatever authentication model you are using) and the relationship FK field needs to have the same name you configured on the *Plugin Settings*.
 
 ![image](https://user-images.githubusercontent.com/11933789/131034172-984fcff8-07f9-487d-8a34-71e17212b152.png)
 
