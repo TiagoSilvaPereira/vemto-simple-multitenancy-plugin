@@ -4,7 +4,11 @@
     "name": "simple-multi-tenancy",
     "title": "Simple Multi Tenancy",
     "description": "Simple logged user based multi-tenancy",
-    "image": "",
+    "image": null,
     "main": "src/main.js",
-    "vueComponent": "dist/simple-multi-tenancy.umd.min.js"
+    "vueComponent": "dist/simple-multi-tenancy.umd.min.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TiagoSilvaPereira/vemto-simple-multitenancy-plugin"
+    }
 }
