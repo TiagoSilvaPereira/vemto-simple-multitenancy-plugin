@@ -6,6 +6,14 @@ This plugin is intended to bring simple User Login multi-tenancy to your Vemto L
 
 It adds a Trait (**BelongsToTenant.php**) to all models you marked as "owned by tenant", making it possible to create and list records that are owned by the **Authenticated User**.
 
+## Permissions
+
+By default, Vemto generates permissions and adds them to the super-admin (you need to change the code or manually add them to other users). 
+
+So, when using this plugin, **it is recommended to initially disable the permissions modules**, so it would not be necessary to manually add permissions or change the code to test the multi-tenancy.
+
+![image](https://user-images.githubusercontent.com/11933789/136062221-975a3339-ce47-4354-a538-4bee0ea5f2a8.png)
+
 ## Settings
 
 This plugin has only two simple settings:
